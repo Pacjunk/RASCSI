@@ -454,7 +454,7 @@ int Disk::ModeSense6(const DWORD *cdb, BYTE *buf)
 	}
 
 	int pages_size = super::AddModePages(cdb, &buf[size], length - size);
-	if (!pages_size) {
+	if (pages_size==-1) {
 		return 0;
 	}
 	size += pages_size;
@@ -541,7 +541,7 @@ int Disk::ModeSense10(const DWORD *cdb, BYTE *buf, int max_length)
 	}
 
 	int pages_size = super::AddModePages(cdb, &buf[size], length - size);
-	if (!pages_size) {
+	if (pages_size==-1) {
 		return 0;
 	}
 	size += pages_size;
