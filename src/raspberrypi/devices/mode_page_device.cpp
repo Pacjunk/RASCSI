@@ -47,7 +47,7 @@ int ModePageDevice::AddModePages(const DWORD *cdb, BYTE *buf, int max_length)
 	if (pages.empty()) {
 		LOGTRACE("%s Unsupported mode page $%02X", __PRETTY_FUNCTION__, page);
 		SetStatusCode(STATUS_INVALIDCDB);
-		return 0;
+		return -1;
 	}
 
 	// Holds all mode page data
