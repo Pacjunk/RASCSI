@@ -175,7 +175,7 @@ vector<BYTE> PrimaryDevice::Inquiry(device_type type, scsi_level level, bool is_
 	buf[0] = type;
 	buf[1] = is_removable ? 0x80 : 0x00;
 	buf[2] = level;
-	buf[3] = level >= scsi_level::SCSI_2 ? scsi_level::SCSI_2 : scsi_level::SCSI_1_CCS;
+	buf[3] = scsi_level::SCSI_1_CCS;
 	buf[4] = 0x1F;
 
 	// Padded vendor, product, revision
